@@ -486,18 +486,20 @@
                 display: none;
             }
             
-            /* Fix for mobile menu overlap issue */
+            /* Alternative: place at top of expanded menu */
             .mobile-owner-contacts {
                 display: none;
                 position: fixed;
-                bottom: 20%;
+                top: 80px; /* Position below the header */
                 left: 0;
                 width: 100%;
                 background-color: #111;
                 padding: 1.5rem;
                 z-index: 1000;
                 text-align: center;
+                border-bottom: 1px solid #333;
             }
+
             
             .mobile-owner-contacts.show {
                 display: block;
