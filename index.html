@@ -1,837 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Power Wash Guys - Expert Cleaning Services</title>
     <link rel="canonical" href="https://thepowerwashguys.net/" />
-    <meta name="description" content="The Power Wash Guys offer professional power washing and exterior cleaning services for homes and businesses. Get a free quote today!" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta
+      name="description"
+      content="The Power Wash Guys offer professional power washing and exterior cleaning services for homes and businesses. Get a free quote today!"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <!-- Font Awesome for social icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Basic Reset & Defaults */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: #111;
-            background-color: #fafafa;
-            font-weight: 300;
-        }
-
-        /* Header & Navigation */
-        header {
-            background: #111;
-            color: #fff;
-            padding: 1.5rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            width: 100%;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            flex-wrap: wrap;
-        }
-
-        nav .logo {
-            font-size: 1.2rem;
-            font-weight: 500;
-            letter-spacing: 0.05em;
-            margin-right: 1rem;
-            display: flex;
-            align-items: center;
-            text-transform: uppercase;
-        }
-        
-        nav .logo img {
-            height: 40px;
-            margin-right: 15px;
-            filter: invert(1);
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            align-items: center;
-        }
-
-        nav ul li {
-            margin-left: 2rem;
-        }
-
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            transition: opacity 0.3s ease;
-            font-size: 0.95rem;
-            letter-spacing: 0.05em;
-            font-weight: 400;
-            text-transform: uppercase;
-        }
-
-        nav ul li a:hover {
-            opacity: 0.7;
-        }
-
-        /* Owner Contacts in Header */
-        .owner-contacts {
-            font-size: 0.9rem;
-            text-align: right;
-            margin-left: auto;
-            padding-left: 2rem;
-        }
-
-        .owner-contacts p {
-            margin-bottom: 0.2rem;
-            font-weight: 300;
-        }
-
-        .owner-contacts a {
-            color: #fff;
-            text-decoration: none;
-            transition: opacity 0.3s ease;
-        }
-
-        .owner-contacts a:hover {
-            opacity: 0.7;
-        }
-
-        /* Sections General Styling */
-        section {
-            padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            background-color: transparent;
-        }
-
-        section h2 {
-            text-align: center;
-            margin-bottom: 3rem;
-            color: #111;
-            font-size: 2.5rem;
-            font-weight: 500;
-            letter-spacing: -0.02em;
-            position: relative;
-        }
-
-        section h2:after {
-            content: "";
-            display: block;
-            width: 50px;
-            height: 2px;
-            background: #111;
-            margin: 1rem auto 0;
-        }
-
-        /* Hero Section */
-        #hero {
-            position: relative;
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #fff;
-            padding: 0;
-            overflow: hidden;
-            margin: 0 auto;
-            max-width: none;
-        }
-
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 1;
-            filter: brightness(0.4) grayscale(0.5) contrast(1.1);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            padding: 3rem;
-            max-width: 700px;
-        }
-
-        #hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-            letter-spacing: -0.03em;
-            line-height: 1.2;
-        }
-
-        #hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2.5rem;
-            font-weight: 300;
-            opacity: 0.9;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Call to Action Button */
-        .cta-button {
-            display: inline-block;
-            background-color: #fff;
-            color: #111;
-            padding: 1rem 2rem;
-            text-decoration: none;
-            border-radius: 0;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-weight: 500;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-        }
-
-        .cta-button:hover {
-            background-color: #eee;
-            transform: translateY(-2px);
-        }
-
-        /* About Section */
-        #about {
-            background-color: #fff;
-            padding: 8rem 2rem;
-        }
-
-        #about p {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-            font-size: 1.2rem;
-            line-height: 1.8;
-        }
-
-        /* Services Section */
-        #services {
-            background-color: #fafafa;
-            padding: 8rem 2rem;
-        }
-
-        .service-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-        }
-
-        .service-item {
-            background: #fff;
-            padding: 2.5rem;
-            border: none;
-            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.04);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .service-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-        }
-
-        .service-item h3 {
-            margin-bottom: 1rem;
-            color: #111;
-            font-size: 1.3rem;
-            font-weight: 600;
-            letter-spacing: -0.01em;
-        }
-
-        .service-item p {
-            color: #555;
-            font-size: 1rem;
-        }
-
-        /* Gallery Section */
-        #gallery {
-            background-color: #fff;
-            padding: 8rem 2rem;
-        }
-
-        .gallery-notice {
-            text-align: center;
-            margin-bottom: 3rem;
-            color: #777;
-            font-style: italic;
-        }
-
-        .gallery-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            display: block;
-            filter: grayscale(100%);
-            transition: filter 0.5s ease;
-        }
-
-        .gallery-item:hover img {
-            filter: grayscale(0%);
-        }
-
-        .gallery-item p {
-            text-align: center;
-            margin-top: 1rem;
-            font-size: 0.9rem;
-            color: #555;
-            letter-spacing: 0.03em;
-        }
-
-        /* Testimonials Section */
-        #testimonials {
-            background-color: #fafafa;
-            padding: 8rem 2rem;
-        }
-
-        .testimonial-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-        }
-
-        .testimonial {
-            background: #fff;
-            padding: 3rem;
-            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.04);
-            position: relative;
-        }
-
-        .testimonial:before {
-            content: """;
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-size: 5rem;
-            color: #f0f0f0;
-            font-family: Georgia, serif;
-            line-height: 1;
-        }
-
-        .testimonial blockquote {
-            font-style: italic;
-            margin-bottom: 1.5rem;
-            color: #333;
-            position: relative;
-            z-index: 1;
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        .testimonial cite {
-            font-weight: 500;
-            color: #111;
-            font-style: normal;
-            display: block;
-            margin-top: 1rem;
-        }
-
-        /* Footer */
-        footer {
-            background: #111;
-            color: #999;
-            text-align: center;
-            padding: 4rem 2rem;
-            margin-top: 0;
-            font-size: 0.9rem;
-        }
-
-        footer p {
-            margin-bottom: 1rem;
-        }
-
-        footer .owner-contacts {
-            text-align: center;
-            margin: 2rem auto;
-            max-width: 600px;
-            padding: 0;
-        }
-
-        footer .owner-contacts p {
-            margin-bottom: 0.5rem;
-            color: #ccc;
-        }
-
-        /* Social Icons */
-        .social-links {
-            margin-top: 2rem;
-        }
-
-        .social-links a {
-            color: #fff;
-            margin: 0 1rem;
-            text-decoration: none;
-            font-size: 1.5rem;
-            transition: opacity 0.3s ease;
-        }
-
-        .social-links a:hover {
-            opacity: 0.7;
-        }
-
-        /* Hamburger Menu */
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem;
-            z-index: 1001;
-        }
-
-        .menu-toggle .bar {
-            display: block;
-            width: 25px;
-            height: 2px;
-            margin: 6px auto;
-            background-color: #fff;
-            transition: all 0.3s ease-in-out;
-        }
-
-        /* Logo in hero section */
-        .hero-logo {
-            max-width: 120px;
-            margin-bottom: 2rem;
-            filter: invert(1);
-        }
-
-        .mobile-owner-contacts {
-                display: none;
-                position: fixed;
-                top: 80px; /* Position below the header */
-                left: 0;
-                width: 100%;
-                background-color: #111;
-                padding: 1.5rem;
-                z-index: 1000;
-                text-align: center;
-                border-bottom: 1px solid #333;
-            }
-            
-            /* Ensure mobile contacts are hidden on desktop */
-            @media (min-width: 769px) {
-                .mobile-owner-contacts {
-                    display: none !important;
-                }
-            }
-
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-                position: absolute;
-                top: 1.2rem;
-                right: 1.5rem;
-            }
-
-                /* Ensure footer contacts are visible on mobile */
-                footer .owner-contacts {
-                    display: block;
-                    text-align: center;
-                    margin: 2rem auto;
-                    max-width: 100%;
-                    padding: 0 1rem;
-                }
-                
-                footer .owner-contacts p {
-                    margin-bottom: 0.7rem;
-                    font-size: 0.9rem;
-                }
-            
-            nav {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            nav .logo {
-                margin-bottom: 0;
-                margin-right: 0;
-                margin-left: 0;
-            }
-
-            nav ul {
-                position: fixed;
-                left: -100%;
-                top: 0;
-                flex-direction: column;
-                background-color: #111;
-                width: 100%;
-                height: 100vh;
-                z-index: 1000;
-                padding-top: 5rem;
-                transition: 0.3s;
-                justify-content: center;
-            }
-            
-            nav ul.show {
-                left: 0;
-            }
-            
-            nav ul li {
-                margin: 1.5rem 0;
-                width: 100%;
-                text-align: center;
-                margin-left: 0;
-            }
-
-            /* Hamburger animation */
-            .menu-toggle.active .bar:nth-child(1) {
-                transform: translateY(8px) rotate(45deg);
-            }
-            
-            .menu-toggle.active .bar:nth-child(2) {
-                opacity: 0;
-            }
-            
-            .menu-toggle.active .bar:nth-child(3) {
-                transform: translateY(-8px) rotate(-45deg);
-            }
-
-            .owner-contacts {
-                display: none;
-            }
-            
-            /* Alternative: place at top of expanded menu */
-            .mobile-owner-contacts {
-                display: none !important;
-                position: fixed;
-                top: 80px; /* Position below the header */
-                left: 0;
-                width: 100%;
-                background-color: #111;
-                padding: 1.5rem;
-                z-index: 1000;
-                text-align: center;
-                border-bottom: 1px solid #333;
-            }
-
-            
-            .mobile-owner-contacts.show {
-                display: block !important;
-            }
-            
-            .mobile-owner-contacts p {
-                margin-bottom: 0.5rem;
-                color: #fff;
-            }
-            
-            .mobile-owner-contacts a {
-                color: #fff;
-                text-decoration: none;
-            }
-
-            #hero h1 {
-                font-size: 2.5rem;
-            }
-
-            #hero p {
-                font-size: 1.1rem;
-            }
-
-            section {
-                padding: 5rem 1.5rem;
-            }
-
-            section h2 {
-                font-size: 2rem;
-            }
-            
-            .service-container,
-            .gallery-container,
-            .testimonial-container {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <header>
-        <nav>
-            <div class="logo">
-                <img src="pasted-095968.png" alt="The Power Wash Guys Logo" />
-                TPW GUYS
-            </div>
-            <ul>
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#footer-info">Contact</a></li>
-            </ul>
-            <div class="owner-contacts">
-                <p>Jacob: <a href="tel:3473596247">(347) 359-6247</a></p>
-                <p>Solomon: <a href="tel:9176541699">(917) 654-1699</a></p>
-            </div>
-        </nav>
+      <nav>
+        <!-- Hamburger menu button will be inserted here by JS -->
+        <div class="logo">
+          <img src="pasted-095968.png" alt="The Power Wash Guys Logo" />
+          TPW GUYS
+        </div>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#footer-info">Contact</a></li>
+        </ul>
+        <div class="owner-contacts">
+          <p>Jacob: <a href="tel:3473596247">(347) 359-6247</a></p>
+          <p>Solomon: <a href="tel:9176541699">(917) 654-1699</a></p>
+        </div>
+      </nav>
     </header>
-    
+    <!-- Mobile Owner Contacts div will be appended here by JS -->
+
     <main>
-        <!-- Hero Section -->
-        <section id="hero">
-            <img src="hero-image.png" alt="Clean home exterior" class="hero-bg" />
-            <div class="hero-content">
-                <img src="pasted-095968.png" alt="The Power Wash Guys Logo" class="hero-logo" />
-                <h1>Restore Your Property's Shine</h1>
-                <p>Professional power washing services that enhance curb appeal and protect your investment.</p>
-                <a href="tel:3473596247" class="cta-button">Call for a Free Quote</a>
-            </div>
-        </section>
+      <!-- Hero Section -->
+      <section id="hero">
+        <img src="hero-image.png" alt="Clean home exterior" class="hero-bg" />
+        <div class="hero-content">
+          <img
+            src="pasted-095968.png"
+            alt="The Power Wash Guys Logo"
+            class="hero-logo"
+          />
+          <h1>Restore Your Property's Shine</h1>
+          <p>
+            Professional power washing services that enhance curb appeal and
+            protect your investment.
+          </p>
+          <a href="tel:3473596247" class="cta-button">Call for a Free Quote</a>
+        </div>
+      </section>
 
-        <!-- About Section -->
-        <section id="about">
-            <h2>About Us</h2>
+      <!-- About Section -->
+      <section id="about">
+        <h2>About Us</h2>
+        <p>
+          At The Power Wash Guys, we pride ourselves on delivering top-quality
+          power washing services that transform your property. Using safe and
+          effective techniques, we remove dirt, grime, mold, and mildew from
+          various surfaces, leaving them looking brand new.
+        </p>
+        <p style="margin-top: 30px; font-weight: 500">
+          Bringing Back the Shine One Wash at a Time
+        </p>
+      </section>
+
+      <!-- Services Section -->
+      <section id="services">
+        <h2>Our Services</h2>
+        <div class="service-container">
+          <div class="service-item">
+            <h3>House Washing</h3>
             <p>
-                At The Power Wash Guys, we pride ourselves on delivering top-quality power washing
-                services that transform your property. Using safe and effective techniques, we remove dirt, grime, mold, and
-                mildew from various surfaces, leaving them looking brand new.
+              Safely clean siding (vinyl, brick, stucco) removing algae and dirt
+              buildup.
             </p>
-            <p style="margin-top: 30px; font-weight: 500;">
-                Bringing Back the Shine One Wash at a Time
+          </div>
+          <div class="service-item">
+            <h3>Driveway & Sidewalk Cleaning</h3>
+            <p>
+              Eliminate oil stains, tire marks, and grime for a welcoming
+              entrance.
             </p>
-        </section>
-
-        <!-- Services Section -->
-        <section id="services">
-            <h2>Our Services</h2>
-            <div class="service-container">
-                <div class="service-item">
-                    <h3>House Washing</h3>
-                    <p>
-                        Safely clean siding (vinyl, brick, stucco) removing algae and
-                        dirt buildup.
-                    </p>
-                </div>
-                <div class="service-item">
-                    <h3>Driveway & Sidewalk Cleaning</h3>
-                    <p>
-                        Eliminate oil stains, tire marks, and grime for a welcoming
-                        entrance.
-                    </p>
-                </div>
-                <div class="service-item">
-                    <h3>Deck & Patio Cleaning</h3>
-                    <p>
-                        Restore wood or composite decks and patios to their original
-                        beauty.
-                    </p>
-                </div>
-                <div class="service-item">
-                    <h3>Fence Washing</h3>
-                    <p>Bring back the life to your wood or vinyl fences.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Roof Cleaning</h3>
-                    <p>
-                        Gently remove black streaks and moss safely with our soft wash technique.
-                    </p>
-                </div>
-                <div class="service-item">
-                    <h3>Custom Solutions</h3>
-                    <p>
-                        Have something else in mind? Contact us to see how we can help!
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Gallery Section -->
-        <section id="gallery">
-            <h2>Before & After</h2>
-            <p class="gallery-notice">
-                Replace these placeholder images with your actual power washing work
+          </div>
+          <div class="service-item">
+            <h3>Deck & Patio Cleaning</h3>
+            <p>
+              Restore wood or composite decks and patios to their original
+              beauty.
             </p>
-            <div class="gallery-container">
-                <div class="gallery-item">
-                    <img src="Group-286-1.png" alt="Before and after power washing" />
-                    <p>Driveway Transformation</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="Group-286-1.png" alt="Before and after power washing" />
-                    <p>House Siding Renewal</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="Group-286-1.png" alt="Before and after power washing" />
-                    <p>Deck Restoration</p>
-                </div>
-            </div>
-        </section>
+          </div>
+          <div class="service-item">
+            <h3>Fence Washing</h3>
+            <p>Bring back the life to your wood or vinyl fences.</p>
+          </div>
+          <div class="service-item">
+            <h3>Roof Cleaning</h3>
+            <p>
+              Gently remove black streaks and moss safely with our soft wash
+              technique.
+            </p>
+          </div>
+          <div class="service-item">
+            <h3>Custom Solutions</h3>
+            <p>Have something else in mind? Contact us to see how we can help!</p>
+          </div>
+        </div>
+      </section>
 
-        <!-- Testimonials Section -->
-        <section id="testimonials">
-            <h2>Client Testimonials</h2>
-            <div class="testimonial-container">
-                <div class="testimonial">
-                    <blockquote>
-                        "Our house looks brand new! The Power Wash Guys were professional,
-                        efficient, and did an amazing job on our siding and driveway."
-                    </blockquote>
-                    <cite>Jane D., Brooklyn</cite>
-                </div>
-                <div class="testimonial">
-                    <blockquote>
-                        "Highly recommend! They removed years of grime from our patio.
-                        Great service and fair pricing."
-                    </blockquote>
-                    <cite>Mark S., Brooklyn</cite>
-                </div>
-            </div>
-        </section>
+      <!-- Gallery Section -->
+      <section id="gallery">
+        <h2>Before & After</h2>
+        <p class="gallery-notice">
+          Replace these placeholder images with your actual power washing work
+        </p>
+        <div class="gallery-container">
+          <div class="gallery-item">
+            <img src="Group-286-1.png" alt="Before and after power washing" />
+            <p>Driveway Transformation</p>
+          </div>
+          <div class="gallery-item">
+            <img src="Group-286-1.png" alt="Before and after power washing" />
+            <p>House Siding Renewal</p>
+          </div>
+          <div class="gallery-item">
+            <img src="Group-286-1.png" alt="Before and after power washing" />
+            <p>Deck Restoration</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials Section -->
+      <section id="testimonials">
+        <h2>Client Testimonials</h2>
+        <div class="testimonial-container">
+          <div class="testimonial">
+            <blockquote>
+              "Our house looks brand new! The Power Wash Guys were professional,
+              efficient, and did an amazing job on our siding and driveway."
+            </blockquote>
+            <cite>Jane D., Brooklyn</cite>
+          </div>
+          <div class="testimonial">
+            <blockquote>
+              "Highly recommend! They removed years of grime from our patio.
+              Great service and fair pricing."
+            </blockquote>
+            <cite>Mark S., Brooklyn</cite>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer id="footer-info">
+      <p>&copy; <span id="year"></span> The Power Wash Guys</p>
+      <p>Serving Brooklyn with excellence</p>
+      <div class="owner-contacts">
+        <p>Contact Us</p>
         <p>
-            &copy; <span id="year"></span> The Power Wash Guys
+          Jacob Cohen:
+          <a href="tel:3473596247">(347) 359-6247</a>
+          |
+          <a href="mailto:jacobcohen5454@gmail.com"
+            >jacobcohen5454@gmail.com</a
+          >
         </p>
-        <p>Serving Brooklyn with excellence</p>
-        <div class="owner-contacts">
-             <p>Contact Us</p>
-             <p>
-                Jacob Cohen: 
-                <a href="tel:3473596247">(347) 359-6247</a> 
-                 |  
-                <a href="mailto:jacobcohen5454@gmail.com">jacobcohen5454@gmail.com</a>
-            </p>
-             <p>Solomon Safdeye: <a href="tel:9176541699">(917) 654-1699</a></p>
-        </div>
-        <div class="social-links">
-            <!-- Replaced text links with Font Awesome icons -->
-            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        </div>
+        <p>Solomon Safdeye: <a href="tel:9176541699">(917) 654-1699</a></p>
+      </div>
+      <div class="social-links">
+        <!-- Replaced text links with Font Awesome icons -->
+        <a
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook"
+          ><i class="fab fa-facebook"></i
+        ></a>
+        <a
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+          ><i class="fab fa-instagram"></i
+        ></a>
+      </div>
     </footer>
 
-    <script>
-        // Create and add hamburger menu button
-        document.addEventListener('DOMContentLoaded', function() {
-            // Create hamburger menu button
-            const menuToggle = document.createElement('button');
-            menuToggle.classList.add('menu-toggle');
-            menuToggle.setAttribute('aria-label', 'Toggle navigation menu');
-            menuToggle.innerHTML = '<span class="bar"></span><span class="bar"></span><span class="bar"></span>';
-            
-            // Get the nav element and insert the button
-            const nav = document.querySelector('nav');
-            nav.insertBefore(menuToggle, nav.firstChild);
-            
-            // Create mobile contacts div
-            const mobileContacts = document.createElement('div');
-            mobileContacts.className = 'mobile-owner-contacts';
-            mobileContacts.innerHTML = `
-                <p>Jacob: <a href="tel:3473596247">(347) 359-6247</a></p>
-                <p>Solomon: <a href="tel:9176541699">(917) 654-1699</a></p>
-            `;
-            mobileContacts.style.display = 'none';
-            
-            // Add to body
-            document.body.appendChild(mobileContacts);
-            
-            // Toggle menu on click
-            menuToggle.addEventListener('click', function() {
-                const navMenu = document.querySelector('nav ul');
-                navMenu.classList.toggle('show');
-                
-                if (navMenu.classList.contains('show')) {
-                    mobileContacts.style.display = 'block';
-                } else {
-                    mobileContacts.style.display = 'none';
-                }
-                
-                menuToggle.classList.toggle('active');
-                document.body.classList.toggle('menu-open');
-            });
-            
-            // Close menu when clicking outside
-            document.addEventListener('click', function(event) {
-                const navMenu = document.querySelector('nav ul');
-                const menuButton = document.querySelector('.menu-toggle');
-                const mobileContacts = document.querySelector('.mobile-owner-contacts');
-                
-                if (navMenu.classList.contains('show') && 
-                    !event.target.closest('nav ul') && 
-                    !event.target.closest('.menu-toggle')) {
-                    navMenu.classList.remove('show');
-                    mobileContacts.classList.remove('show');
-                    menuButton.classList.remove('active');
-                    document.body.classList.remove('menu-open');
-                }
-            });
-            
-            // Smooth Scrolling for Navigation Links
-            document.querySelectorAll('nav a[href^="#"], .cta-button[href^="#"]').forEach((anchor) => {
-                anchor.addEventListener("click", function (e) {
-                    if (this.getAttribute("href").startsWith("#")) {
-                        e.preventDefault();
-                        
-                        // Close mobile menu if open
-                        const navMenu = document.querySelector('nav ul');
-                        const menuButton = document.querySelector('.menu-toggle');
-                        const mobileContacts = document.querySelector('.mobile-owner-contacts');
-                        
-                        if (navMenu.classList.contains('show')) {
-                            navMenu.classList.remove('show');
-                            mobileContacts.classList.remove('show');
-                            menuButton.classList.remove('active');
-                            document.body.classList.remove('menu-open');
-                        }
-
-                        const targetId = this.getAttribute("href");
-                        const targetElement = document.querySelector(targetId);
-
-                        if (targetElement) {
-                            const headerOffset = document.querySelector("header")?.offsetHeight || 0;
-                            const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                            const offsetPosition = elementPosition - headerOffset - 20;
-
-                            window.scrollTo({
-                                top: offsetPosition,
-                                behavior: "smooth",
-                            });
-                        } else if (targetId === "#hero") {
-                            window.scrollTo({
-                                top: 0,
-                                behavior: "smooth",
-                            });
-                        }
-                    }
-                });
-            });
-
-            // Set current year in footer
-            const yearElement = document.getElementById("year");
-            if (yearElement) {
-                yearElement.textContent = new Date().getFullYear();
-            }
-        });
-    </script>
-</body>
+    <!-- Link to external JS file -->
+    <script src="scripts.js"></script>
+  </body>
 </html>
