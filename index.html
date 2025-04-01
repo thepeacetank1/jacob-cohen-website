@@ -713,16 +713,25 @@
             // Get the nav element and insert the button
             const nav = document.querySelector('nav');
             nav.insertBefore(menuToggle, nav.firstChild);
-            
+                        
             // Toggle menu on click
             menuToggle.addEventListener('click', function() {
                 const navMenu = document.querySelector('nav ul');
                 const mobileContacts = document.querySelector('.mobile-owner-contacts');
                 navMenu.classList.toggle('show');
+                
+                // For better integration with nav menu
+                if (navMenu.classList.contains('show')) {
+                    navMenu.style.paddingBottom = '120px'; // Make room for contacts at bottom
+                } else {
+                    navMenu.style.paddingBottom = '0';
+                }
+                
                 mobileContacts.classList.toggle('show');
                 menuToggle.classList.toggle('active');
                 document.body.classList.toggle('menu-open');
             });
+
             
             // Close menu when clicking outside
             document.addEventListener('click', function(event) {
