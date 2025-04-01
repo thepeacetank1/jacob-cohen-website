@@ -407,7 +407,7 @@ footer .owner-contacts p {
 .hero-logo {
   max-width: 120px;
   margin-bottom: 2rem;
-  filter: invert(1);
+  /*filter: invert(1); */
 }
 
 .mobile-owner-contacts {
