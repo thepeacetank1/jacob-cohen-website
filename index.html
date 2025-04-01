@@ -713,25 +713,33 @@
             // Get the nav element and insert the button
             const nav = document.querySelector('nav');
             nav.insertBefore(menuToggle, nav.firstChild);
-                        
+            
+            // Create mobile contacts div
+            const mobileContacts = document.createElement('div');
+            mobileContacts.className = 'mobile-owner-contacts';
+            mobileContacts.innerHTML = `
+                <p>Jacob: <a href="tel:3473596247">(347) 359-6247</a></p>
+                <p>Solomon: <a href="tel:9176541699">(917) 654-1699</a></p>
+            `;
+            mobileContacts.style.display = 'none';
+            
+            // Add to body
+            document.body.appendChild(mobileContacts);
+            
             // Toggle menu on click
             menuToggle.addEventListener('click', function() {
                 const navMenu = document.querySelector('nav ul');
-                const mobileContacts = document.querySelector('.mobile-owner-contacts');
                 navMenu.classList.toggle('show');
                 
-                // For better integration with nav menu
                 if (navMenu.classList.contains('show')) {
-                    navMenu.style.paddingBottom = '120px'; // Make room for contacts at bottom
+                    mobileContacts.style.display = 'block';
                 } else {
-                    navMenu.style.paddingBottom = '0';
+                    mobileContacts.style.display = 'none';
                 }
                 
-                mobileContacts.classList.toggle('show');
                 menuToggle.classList.toggle('active');
                 document.body.classList.toggle('menu-open');
             });
-
             
             // Close menu when clicking outside
             document.addEventListener('click', function(event) {
