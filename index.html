@@ -287,9 +287,48 @@
         }
         /* Consider adding icons (e.g., Font Awesome) here */
 
+        /* Hamburger Menu */
+        .menu-toggle {
+            display: none; /* Hidden by default on desktop */
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1001;
+        }
+
+        .menu-toggle .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: #fff;
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Ensure sections have enough padding for header offset */
+        section {
+            scroll-margin-top: 70px; /* Adjust based on your header height */
+        }
+
+        /* Fix for hero section */
+        #hero {
+            scroll-margin-top: 0;
+        }
+
+        body.menu-open {
+            overflow: hidden; /* Prevent scrolling when menu is open */
+        }
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            .menu-toggle {
+                display: block; /* Show on mobile */
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+            }
+            
             nav {
                 flex-direction: column;
                 align-items: center; /* Center items on mobile */
@@ -298,31 +337,67 @@
             nav .logo {
                 margin-bottom: 0.5rem;
                 margin-right: 0;
+                margin-left: 1rem;
+                align-self: flex-start;
             }
 
             nav ul {
-                margin-top: 1rem;
+                position: fixed;
+                left: -100%;
+                top: 0;
                 flex-direction: column;
-                width: 100%;
-                padding-left: 0; /* Remove padding */
+                background-color: #333;
+                width: 80%;
+                height: 100vh;
+                z-index: 1000;
+                padding-top: 4rem;
+                transition: 0.3s;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             }
-
+            
+            nav ul.show {
+                left: 0;
+            }
+            
             nav ul li {
-                margin: 0.5rem 0;
+                margin: 1rem 0;
+                width: 100%;
                 text-align: center;
                 background: #444;
                 padding: 0.5rem;
                 border-radius: 4px;
-                width: 90%; /* Make nav items wider */
-                margin-left: 0; /* Remove left margin */
+                width: 90%;
+                margin-left: 0;
+            }
+
+            /* Hamburger animation */
+            .menu-toggle.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            
+            .menu-toggle.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .menu-toggle.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
             }
 
             .owner-contacts {
+                display: none; /* Hide in the header when menu is collapsed */
+            }
+            
+            /* Show owner contacts in expanded menu */
+            nav ul.show + .owner-contacts {
+                display: block;
+                position: fixed;
+                top: 70%;
+                left: 0;
+                width: 80%;
+                background-color: #333;
+                padding: 1rem;
+                z-index: 1000;
                 text-align: center;
-                margin-top: 1rem;
-                margin-left: 0; /* Remove left margin */
-                padding-left: 0; /* Remove padding */
-                width: 100%;
             }
 
             #hero h1 {
@@ -335,6 +410,7 @@
 
             section {
                 padding: 3rem 1rem;
+                scroll-margin-top: 60px;
             }
 
             section h2 {
@@ -513,42 +589,84 @@
     </footer>
 
     <script>
-        // Smooth Scrolling for Navigation Links
-        document.querySelectorAll('nav a[href^="#"], .cta-button[href^="#"]').forEach((anchor) => {
-            anchor.addEventListener("click", function (e) {
-                e.preventDefault(); // Prevent default jump
-
-                const targetId = this.getAttribute("href");
-                const targetElement = document.querySelector(targetId);
-
-                if (targetElement) {
-                    // Calculate offset if header is sticky
-                    const headerOffset =
-                        document.querySelector("header")?.offsetHeight || 0;
-                    const elementPosition =
-                        targetElement.getBoundingClientRect().top + window.pageYOffset;
-                    // Adjust offset slightly more to ensure content isn't hidden right under the header
-                    const offsetPosition = elementPosition - headerOffset - 20;
-
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: "smooth",
-                    });
-                } else if (targetId === "#hero") {
-                     // Special case for scrolling to top/hero
-                     window.scrollTo({
-                        top: 0,
-                        behavior: "smooth",
-                    });
+        // Create and add hamburger menu button
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create hamburger menu button
+            const menuToggle = document.createElement('button');
+            menuToggle.classList.add('menu-toggle');
+            menuToggle.setAttribute('aria-label', 'Toggle navigation menu');
+            menuToggle.innerHTML = '<span class="bar"></span><span class="bar"></span><span class="bar"></span>';
+            
+            // Get the nav element and insert the button
+            const nav = document.querySelector('nav');
+            nav.insertBefore(menuToggle, nav.firstChild);
+            
+            // Toggle menu on click
+            menuToggle.addEventListener('click', function() {
+                const navMenu = document.querySelector('nav ul');
+                navMenu.classList.toggle('show');
+                menuToggle.classList.toggle('active');
+                document.body.classList.toggle('menu-open');
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                const navMenu = document.querySelector('nav ul');
+                const menuButton = document.querySelector('.menu-toggle');
+                
+                if (navMenu.classList.contains('show') && 
+                    !event.target.closest('nav ul') && 
+                    !event.target.closest('.menu-toggle')) {
+                    navMenu.classList.remove('show');
+                    menuButton.classList.remove('active');
+                    document.body.classList.remove('menu-open');
                 }
             });
-        });
+            
+            // Smooth Scrolling for Navigation Links
+            document.querySelectorAll('nav a[href^="#"], .cta-button[href^="#"]').forEach((anchor) => {
+                anchor.addEventListener("click", function (e) {
+                    e.preventDefault(); // Prevent default jump
+                    
+                    // Close mobile menu if open
+                    const navMenu = document.querySelector('nav ul');
+                    const menuButton = document.querySelector('.menu-toggle');
+                    if (navMenu.classList.contains('show')) {
+                        navMenu.classList.remove('show');
+                        menuButton.classList.remove('active');
+                        document.body.classList.remove('menu-open');
+                    }
 
-        // Set current year in footer
-        const yearElement = document.getElementById("year");
-        if (yearElement) {
-            yearElement.textContent = new Date().getFullYear();
-        }
+                    const targetId = this.getAttribute("href");
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        // Calculate offset if header is sticky
+                        const headerOffset = document.querySelector("header")?.offsetHeight || 0;
+                        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                        // Adjust offset slightly more to ensure content isn't hidden right under the header
+                        const offsetPosition = elementPosition - headerOffset - 20;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth",
+                        });
+                    } else if (targetId === "#hero") {
+                        // Special case for scrolling to top/hero
+                        window.scrollTo({
+                            top: 0,
+                            behavior: "smooth",
+                        });
+                    }
+                });
+            });
+
+            // Set current year in footer
+            const yearElement = document.getElementById("year");
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
+        });
     </script>
 </body>
 </html>
