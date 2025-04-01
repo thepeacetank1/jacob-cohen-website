@@ -51,6 +51,13 @@
             font-size: 1.5rem;
             font-weight: bold;
             margin-right: 1rem; /* Add some space */
+            display: flex;
+            align-items: center;
+        }
+        
+        nav .logo img {
+            height: 50px; /* Adjust based on your logo size */
+            margin-right: 10px;
         }
 
         nav ul {
@@ -320,6 +327,12 @@
             overflow: hidden; /* Prevent scrolling when menu is open */
         }
 
+        /* Logo in hero section */
+        .hero-logo {
+            max-width: 300px;
+            margin-bottom: 20px;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .menu-toggle {
@@ -416,13 +429,20 @@
             section h2 {
                 font-size: 1.8rem;
             }
+            
+            .hero-logo {
+                max-width: 220px;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo">The Power Wash Guys</div>
+            <div class="logo">
+                <img src="logo.png" alt="The Power Wash Guys Logo" />
+                The Power Wash Guys
+            </div>
             <ul>
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -431,9 +451,8 @@
                 <li><a href="#footer-info">Contact</a></li> <!-- Points to footer -->
             </ul>
             <div class="owner-contacts">
-                <!-- REPLACE with actual phone numbers -->
-                <p>Owner 1: <a href="tel:555-111-2222">555-111-2222</a></p>
-                <p>Owner 2: <a href="tel:555-333-4444">555-333-4444</a></p>
+                <p>Jacob: <a href="tel:3473596247">(347) 359-6247</a></p>
+                <p>Solomon: <a href="tel:9176541699">(917) 654-1699</a></p>
             </div>
         </nav>
     </header>
@@ -444,10 +463,11 @@
             <!-- NOTE: Replace 'hero-image.png' with your actual image file -->
             <img src="hero-image.png" alt="Clean home exterior" class="hero-bg" />
             <div class="hero-content">
+                <img src="logo.png" alt="The Power Wash Guys Logo" class="hero-logo" />
                 <h1>Restore Your Property's Shine</h1>
                 <p>Professional Power Washing for Homes & Businesses</p>
-                <!-- Link the CTA to the footer contact info -->
-                <a href="#footer-info" class="cta-button">Get a Free Quote</a>
+                <!-- Changed to phone number link -->
+                <a href="tel:3473596247" class="cta-button">Call Jacob: (347) 359-6247</a>
             </div>
         </section>
 
@@ -460,6 +480,9 @@
                 services that enhance curb appeal and protect your investment. Using
                 safe and effective techniques, we remove dirt, grime, mold, and
                 mildew from various surfaces, leaving them looking brand new.
+            </p>
+            <p style="margin-top: 20px; text-align: center;">
+                <strong>Bringing Back the Shine One Wash at a Time!</strong>
             </p>
             <!-- Optional: Add an image of your team or equipment here -->
         </section>
@@ -570,14 +593,14 @@
     <footer id="footer-info"> <!-- Added ID for navigation link -->
         <p>
             &copy; <span id="year"></span> The Power Wash Guys. All Rights
-            Reserved. | Website by [Your Name/Company or leave blank]
+            Reserved. 
         </p>
-        <p>Serving [Your Service Area - e.g., Springfield & Surrounding Areas]</p>
+        <p>Serving Brooklyn with confidence</p>
         <div class="owner-contacts">
-             <!-- Repeat contacts here for clarity or rely on header -->
+             <!-- Updated with actual phone numbers -->
              <p>Call Us:</p>
-             <p>Owner 1: <a href="tel:555-111-2222">555-111-2222</a></p>
-             <p>Owner 2: <a href="tel:555-333-4444">555-333-4444</a></p>
+             <p>Jacob Cohen: <a href="tel:3473596247">(347) 359-6247</a></p>
+             <p>Solomon Safdeye: <a href="tel:9176541699">(917) 654-1699</a></p>
         </div>
         <div class="social-links">
             <!-- REPLACE # with your actual social media profile URLs -->
