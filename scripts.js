@@ -1,9 +1,5 @@
-
-// scripts.js
-
+// Create and add hamburger menu button
 document.addEventListener("DOMContentLoaded", function () {
-  // --- Hamburger Menu & Mobile Contacts ---
-
   // Create hamburger menu button
   const menuToggle = document.createElement("button");
   menuToggle.classList.add("menu-toggle");
@@ -11,76 +7,80 @@ document.addEventListener("DOMContentLoaded", function () {
   menuToggle.innerHTML =
     '<span class="bar"></span><span class="bar"></span><span class="bar"></span>';
 
-  // Get the nav element and insert the button before the logo
+  // Get the nav element and insert the button
   const nav = document.querySelector("nav");
-  if (nav) {
-    nav.insertBefore(menuToggle, nav.firstChild);
-  }
+  nav.insertBefore(menuToggle, nav.firstChild);
 
   // Create mobile contacts div
   const mobileContacts = document.createElement("div");
-  mobileContacts.className = "mobile-owner-contacts"; // Initially hidden by CSS
+  mobileContacts.className = "mobile-owner-contacts";
   mobileContacts.innerHTML = `
-        <p>Jacob: <a href="tel:3473596247">(347) 359-6247</a></p>
-        <p>Solomon: <a href="tel:9176541699">(917) 654-1699</a></p>
-    `;
+                <p>Jacob: <a href="tel:3473596247">(347) 359-6247</a></p>
+                <p>Solomon: <a href="tel:9176541699">(917) 654-1699</a></p>
+            `;
+  mobileContacts.style.display = "none";
 
-  // Add mobile contacts div after the header
-  const header = document.querySelector("header");
-  if (header && header.parentNode) {
-    header.parentNode.insertBefore(mobileContacts, header.nextSibling);
-  }
+  // Add to body
+  document.body.appendChild(mobileContacts);
 
-  // Toggle menu and mobile contacts on click
-  const navMenu = document.querySelector("nav ul");
+  // Toggle menu on click
+  menuToggle.addEventListener("click", function () {
+    const navMenu = document.querySelector("nav ul");
+    navMenu.classList.toggle("show");
 
-  if (menuToggle && navMenu && mobileContacts) {
-    menuToggle.addEventListener("click", function () {
-      navMenu.classList.toggle("show");
-      mobileContacts.classList.toggle("show"); // Use class to toggle visibility
-      menuToggle.classList.toggle("active");
-      document.body.classList.toggle("menu-open"); // Toggle body class for scroll lock
-    });
-  }
-
-  // Close menu when clicking outside or on a link
-  function closeMenu() {
-    if (navMenu && mobileContacts && menuToggle) {
-      if (navMenu.classList.contains("show")) {
-        navMenu.classList.remove("show");
-        mobileContacts.classList.remove("show");
-        menuToggle.classList.remove("active");
-        document.body.classList.remove("menu-open");
-      }
+    // Toggle mobile contacts visibility based on menu state
+    if (navMenu.classList.contains("show")) {
+      mobileContacts.classList.add("show"); // Use class to control display
+    } else {
+      mobileContacts.classList.remove("show");
     }
-  }
 
-  // Close menu when clicking outside
+    menuToggle.classList.toggle("active");
+    document.body.classList.toggle("menu-open"); // Optional: for potential body styling when menu is open
+  });
+
+  // Close menu when clicking outside (Improved logic)
   document.addEventListener("click", function (event) {
-    if (navMenu && menuToggle) {
-      // Check if the click is outside the nav menu and the toggle button
-      if (
-        !navMenu.contains(event.target) &&
-        !menuToggle.contains(event.target) &&
-        navMenu.classList.contains("show")
-      ) {
-        closeMenu();
-      }
+    const navMenu = document.querySelector("nav ul");
+    const menuButton = document.querySelector(".menu-toggle");
+    const mobileContactsDiv = document.querySelector(".mobile-owner-contacts"); // Renamed for clarity
+
+    // Check if the menu is shown and the click was outside the nav menu AND outside the toggle button
+    if (
+      navMenu.classList.contains("show") &&
+      !navMenu.contains(event.target) && // Click is not inside the menu list
+      !menuButton.contains(event.target) // Click is not the menu button itself
+    ) {
+      navMenu.classList.remove("show");
+      mobileContactsDiv.classList.remove("show");
+      menuButton.classList.remove("active");
+      document.body.classList.remove("menu-open");
     }
   });
 
-  // --- Smooth Scrolling for Navigation Links ---
+  // Smooth Scrolling for Navigation Links
   document
     .querySelectorAll('nav a[href^="#"], .cta-button[href^="#"]')
     .forEach((anchor) => {
       anchor.addEventListener("click", function (e) {
-        const href = this.getAttribute("href");
-        // Ensure it's an internal link
-        if (href.startsWith("#")) {
+        if (this.getAttribute("href").startsWith("#")) {
           e.preventDefault();
-          closeMenu(); // Close mobile menu if open
 
-          const targetId = href;
+          // Close mobile menu if open
+          const navMenu = document.querySelector("nav ul");
+          const menuButton = document.querySelector(".menu-toggle");
+          const mobileContactsDiv = document.querySelector(
+            ".mobile-owner-contacts"
+          ); // Renamed
+
+          if (navMenu.classList.contains("show")) {
+            navMenu.classList.remove("show");
+            mobileContactsDiv.classList.remove("show");
+            menuButton.classList.remove("active");
+            document.body.classList.remove("menu-open");
+          }
+
+          const targetId = this.getAttribute("href");
           const targetElement = document.querySelector(targetId);
 
           if (targetElement) {
@@ -88,8 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
               document.querySelector("header")?.offsetHeight || 0;
             const elementPosition =
               targetElement.getBoundingClientRect().top + window.pageYOffset;
-            // Adjust offset slightly more if needed
-            const offsetPosition = elementPosition - headerOffset - 20;
+            const offsetPosition = elementPosition - headerOffset - 20; // Added buffer
 
             window.scrollTo({
               top: offsetPosition,
@@ -106,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
 
-  // --- Set current year in footer ---
+  // Set current year in footer
   const yearElement = document.getElementById("year");
   if (yearElement) {
     yearElement.textContent = new Date().getFullYear();
