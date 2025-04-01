@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Basic Reset & Defaults */
         * {
@@ -379,6 +381,7 @@
             color: #ccc;
         }
 
+        /* Social Icons */
         .social-links {
             margin-top: 2rem;
         }
@@ -387,11 +390,8 @@
             color: #fff;
             margin: 0 1rem;
             text-decoration: none;
-            font-size: 1rem;
+            font-size: 1.5rem;
             transition: opacity 0.3s ease;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            font-weight: 400;
         }
 
         .social-links a:hover {
@@ -486,16 +486,31 @@
                 display: none;
             }
             
-            nav ul.show + .owner-contacts {
-                display: block;
+            /* Fix for mobile menu overlap issue */
+            .mobile-owner-contacts {
+                display: none;
                 position: fixed;
-                top: 70%;
+                bottom: 20%;
                 left: 0;
                 width: 100%;
-                background-color: transparent;
-                padding: 1rem;
+                background-color: #111;
+                padding: 1.5rem;
                 z-index: 1000;
                 text-align: center;
+            }
+            
+            .mobile-owner-contacts.show {
+                display: block;
+            }
+            
+            .mobile-owner-contacts p {
+                margin-bottom: 0.5rem;
+                color: #fff;
+            }
+            
+            .mobile-owner-contacts a {
+                color: #fff;
+                text-decoration: none;
             }
 
             #hero h1 {
@@ -542,6 +557,12 @@
             </div>
         </nav>
     </header>
+
+    <!-- Mobile Owner Contacts (separate from navigation) -->
+    <div class="mobile-owner-contacts">
+        <p>Jacob: <a href="tel:3473596247">(347) 359-6247</a></p>
+        <p>Solomon: <a href="tel:9176541699">(917) 654-1699</a></p>
+    </div>
 
     <main>
         <!-- Hero Section -->
@@ -672,8 +693,9 @@
              <p>Solomon Safdeye: <a href="tel:9176541699">(917) 654-1699</a></p>
         </div>
         <div class="social-links">
-            <a href="#" target="_blank" rel="noopener noreferrer">Facebook</a>
-            <a href="#" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <!-- Replaced text links with Font Awesome icons -->
+            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
     </footer>
 
@@ -693,7 +715,9 @@
             // Toggle menu on click
             menuToggle.addEventListener('click', function() {
                 const navMenu = document.querySelector('nav ul');
+                const mobileContacts = document.querySelector('.mobile-owner-contacts');
                 navMenu.classList.toggle('show');
+                mobileContacts.classList.toggle('show');
                 menuToggle.classList.toggle('active');
                 document.body.classList.toggle('menu-open');
             });
@@ -702,11 +726,13 @@
             document.addEventListener('click', function(event) {
                 const navMenu = document.querySelector('nav ul');
                 const menuButton = document.querySelector('.menu-toggle');
+                const mobileContacts = document.querySelector('.mobile-owner-contacts');
                 
                 if (navMenu.classList.contains('show') && 
                     !event.target.closest('nav ul') && 
                     !event.target.closest('.menu-toggle')) {
                     navMenu.classList.remove('show');
+                    mobileContacts.classList.remove('show');
                     menuButton.classList.remove('active');
                     document.body.classList.remove('menu-open');
                 }
@@ -721,8 +747,11 @@
                         // Close mobile menu if open
                         const navMenu = document.querySelector('nav ul');
                         const menuButton = document.querySelector('.menu-toggle');
+                        const mobileContacts = document.querySelector('.mobile-owner-contacts');
+                        
                         if (navMenu.classList.contains('show')) {
                             navMenu.classList.remove('show');
+                            mobileContacts.classList.remove('show');
                             menuButton.classList.remove('active');
                             document.body.classList.remove('menu-open');
                         }
