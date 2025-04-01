@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Power Wash Guys - Expert Cleaning Services</title>
     <link rel="canonical" href="https://thepowerwashguys.net/" />
-    <!-- Update this URL if you use a custom domain on GitHub Pages -->
     <meta name="description" content="The Power Wash Guys offer professional power washing and exterior cleaning services for homes and businesses. Get a free quote today!" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* Basic Reset & Defaults */
         * {
@@ -16,22 +18,23 @@
         }
 
         html {
-            scroll-behavior: smooth; /* Enable smooth scrolling */
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: #333;
-            background-color: #f4f4f4;
+            color: #111;
+            background-color: #fafafa;
+            font-weight: 300;
         }
 
         /* Header & Navigation */
         header {
-            background: #333;
+            background: #111;
             color: #fff;
-            padding: 1rem 0;
-            position: sticky; /* Make header stick to top */
+            padding: 1.5rem 0;
+            position: sticky;
             top: 0;
             z-index: 1000;
             width: 100%;
@@ -41,97 +44,115 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
-            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            flex-wrap: wrap;
         }
 
         nav .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-right: 1rem; /* Add some space */
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            margin-right: 1rem;
             display: flex;
             align-items: center;
+            text-transform: uppercase;
         }
         
         nav .logo img {
-            height: 50px; /* Adjust based on your logo size */
-            margin-right: 10px;
+            height: 40px;
+            margin-right: 15px;
+            filter: invert(1);
         }
 
         nav ul {
             list-style: none;
             display: flex;
-            align-items: center; /* Align nav links vertically */
+            align-items: center;
         }
 
         nav ul li {
-            margin-left: 1.5rem;
+            margin-left: 2rem;
         }
 
         nav ul li a {
             color: #fff;
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: opacity 0.3s ease;
+            font-size: 0.95rem;
+            letter-spacing: 0.05em;
+            font-weight: 400;
+            text-transform: uppercase;
         }
 
         nav ul li a:hover {
-            color: #00aaff; /* Accent color */
+            opacity: 0.7;
         }
 
         /* Owner Contacts in Header */
         .owner-contacts {
             font-size: 0.9rem;
             text-align: right;
-            margin-left: auto; /* Push to the right */
-            padding-left: 1rem; /* Space from nav links */
+            margin-left: auto;
+            padding-left: 2rem;
         }
 
         .owner-contacts p {
             margin-bottom: 0.2rem;
+            font-weight: 300;
         }
 
         .owner-contacts a {
             color: #fff;
             text-decoration: none;
+            transition: opacity 0.3s ease;
         }
+
         .owner-contacts a:hover {
-            color: #00aaff;
+            opacity: 0.7;
         }
 
         /* Sections General Styling */
         section {
-            padding: 4rem 2rem;
-            max-width: 1100px;
-            margin: 2rem auto;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: transparent;
         }
 
         section h2 {
             text-align: center;
-            margin-bottom: 2rem;
-            color: #333;
-            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: #111;
+            font-size: 2.5rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            position: relative;
+        }
+
+        section h2:after {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 2px;
+            background: #111;
+            margin: 1rem auto 0;
         }
 
         /* Hero Section */
         #hero {
             position: relative;
-            min-height: 60vh; /* Adjust height as needed */
+            min-height: 80vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: #fff;
-            padding: 0; /* Remove padding to allow image full bleed */
-            overflow: hidden; /* Hide overflowing parts of the image */
-            border-radius: 0; /* Full width hero */
-            margin: 0 auto; /* Remove top/bottom margin */
-            max-width: none; /* Allow full width */
-            box-shadow: none;
+            padding: 0;
+            overflow: hidden;
+            margin: 0 auto;
+            max-width: none;
         }
 
         .hero-bg {
@@ -140,163 +161,246 @@
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Cover the area, might crop */
+            object-fit: cover;
             z-index: 1;
-            filter: brightness(0.5); /* Darken image for text visibility */
+            filter: brightness(0.4) grayscale(0.5) contrast(1.1);
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
-            padding: 2rem;
-            background: rgba(0, 0, 0, 0.3); /* Slight dark overlay for text */
-            border-radius: 8px;
+            padding: 3rem;
+            max-width: 700px;
         }
 
         #hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
         }
 
         #hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* Call to Action Button */
         .cta-button {
             display: inline-block;
-            background-color: #00aaff; /* Accent color */
-            color: #fff;
-            padding: 0.8rem 1.5rem;
+            background-color: #fff;
+            color: #111;
+            padding: 1rem 2rem;
             text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.1rem;
-            transition: background-color 0.3s ease;
+            border-radius: 0;
+            font-size: 1rem;
+            transition: all 0.3s ease;
             border: none;
             cursor: pointer;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
         }
 
         .cta-button:hover {
-            background-color: #0077cc; /* Darker accent */
+            background-color: #eee;
+            transform: translateY(-2px);
         }
 
         /* About Section */
+        #about {
+            background-color: #fff;
+            padding: 8rem 2rem;
+        }
+
         #about p {
             text-align: center;
             max-width: 800px;
             margin: 0 auto;
+            font-size: 1.2rem;
+            line-height: 1.8;
         }
 
         /* Services Section */
+        #services {
+            background-color: #fafafa;
+            padding: 8rem 2rem;
+        }
+
         .service-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            text-align: center;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
         }
 
         .service-item {
-            background: #f9f9f9;
-            padding: 1.5rem;
-            border-radius: 5px;
-            border: 1px solid #eee;
+            background: #fff;
+            padding: 2.5rem;
+            border: none;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
         }
 
         .service-item h3 {
-            margin-bottom: 0.5rem;
-            color: #00aaff;
+            margin-bottom: 1rem;
+            color: #111;
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        .service-item p {
+            color: #555;
+            font-size: 1rem;
         }
 
         /* Gallery Section */
+        #gallery {
+            background-color: #fff;
+            padding: 8rem 2rem;
+        }
+
         .gallery-notice {
             text-align: center;
-            margin-bottom: 1.5rem;
-            color: #888;
+            margin-bottom: 3rem;
+            color: #777;
             font-style: italic;
         }
 
         .gallery-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
         }
 
         .gallery-item img {
             width: 100%;
-            height: 200px; /* Fixed height for consistency */
+            height: 300px;
             object-fit: cover;
-            border-radius: 5px;
             display: block;
-            border: 1px solid #ddd;
+            filter: grayscale(100%);
+            transition: filter 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            filter: grayscale(0%);
         }
 
         .gallery-item p {
             text-align: center;
-            margin-top: 0.5rem;
+            margin-top: 1rem;
             font-size: 0.9rem;
             color: #555;
+            letter-spacing: 0.03em;
         }
 
         /* Testimonials Section */
+        #testimonials {
+            background-color: #fafafa;
+            padding: 8rem 2rem;
+        }
+
         .testimonial-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
         }
 
         .testimonial {
-            background: #f9f9f9;
-            padding: 1.5rem;
-            border-left: 5px solid #00aaff;
-            border-radius: 5px;
+            background: #fff;
+            padding: 3rem;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.04);
+            position: relative;
+        }
+
+        .testimonial:before {
+            content: """;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 5rem;
+            color: #f0f0f0;
+            font-family: Georgia, serif;
+            line-height: 1;
         }
 
         .testimonial blockquote {
             font-style: italic;
-            margin-bottom: 1rem;
-            color: #555;
+            margin-bottom: 1.5rem;
+            color: #333;
+            position: relative;
+            z-index: 1;
+            font-size: 1.1rem;
+            line-height: 1.8;
         }
 
         .testimonial cite {
-            font-weight: bold;
-            color: #333;
+            font-weight: 500;
+            color: #111;
+            font-style: normal;
+            display: block;
+            margin-top: 1rem;
         }
 
         /* Footer */
         footer {
-            background: #333;
-            color: #aaa;
+            background: #111;
+            color: #999;
             text-align: center;
-            padding: 2rem;
-            margin-top: 2rem;
+            padding: 4rem 2rem;
+            margin-top: 0;
             font-size: 0.9rem;
         }
 
         footer p {
+            margin-bottom: 1rem;
+        }
+
+        footer .owner-contacts {
+            text-align: center;
+            margin: 2rem auto;
+            max-width: 600px;
+            padding: 0;
+        }
+
+        footer .owner-contacts p {
             margin-bottom: 0.5rem;
+            color: #ccc;
         }
 
         .social-links {
-            margin-top: 1rem;
+            margin-top: 2rem;
         }
 
         .social-links a {
-            color: #aaa;
-            margin: 0 0.75rem;
+            color: #fff;
+            margin: 0 1rem;
             text-decoration: none;
-            font-size: 1.2rem; /* Adjust size as needed */
-            transition: color 0.3s ease;
+            font-size: 1rem;
+            transition: opacity 0.3s ease;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            font-weight: 400;
         }
 
         .social-links a:hover {
-            color: #00aaff; /* Accent color on hover */
+            opacity: 0.7;
         }
-        /* Consider adding icons (e.g., Font Awesome) here */
 
         /* Hamburger Menu */
         .menu-toggle {
-            display: none; /* Hidden by default on desktop */
+            display: none;
             background: none;
             border: none;
             cursor: pointer;
@@ -307,51 +411,37 @@
         .menu-toggle .bar {
             display: block;
             width: 25px;
-            height: 3px;
-            margin: 5px auto;
+            height: 2px;
+            margin: 6px auto;
             background-color: #fff;
             transition: all 0.3s ease-in-out;
         }
 
-        /* Ensure sections have enough padding for header offset */
-        section {
-            scroll-margin-top: 70px; /* Adjust based on your header height */
-        }
-
-        /* Fix for hero section */
-        #hero {
-            scroll-margin-top: 0;
-        }
-
-        body.menu-open {
-            overflow: hidden; /* Prevent scrolling when menu is open */
-        }
-
         /* Logo in hero section */
         .hero-logo {
-            max-width: 150px;
-            margin-bottom: 2px;
+            max-width: 120px;
+            margin-bottom: 2rem;
+            filter: invert(1);
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
             .menu-toggle {
-                display: block; /* Show on mobile */
+                display: block;
                 position: absolute;
-                top: 1rem;
-                right: 1rem;
+                top: 1.2rem;
+                right: 1.5rem;
             }
             
             nav {
                 flex-direction: column;
-                align-items: center; /* Center items on mobile */
+                align-items: flex-start;
             }
 
             nav .logo {
-                margin-bottom: 0.5rem;
+                margin-bottom: 0;
                 margin-right: 0;
-                margin-left: 1rem;
-                align-self: flex-start;
+                margin-left: 0;
             }
 
             nav ul {
@@ -359,13 +449,13 @@
                 left: -100%;
                 top: 0;
                 flex-direction: column;
-                background-color: #333;
-                width: 80%;
+                background-color: #111;
+                width: 100%;
                 height: 100vh;
                 z-index: 1000;
-                padding-top: 4rem;
+                padding-top: 5rem;
                 transition: 0.3s;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+                justify-content: center;
             }
             
             nav ul.show {
@@ -373,13 +463,9 @@
             }
             
             nav ul li {
-                margin: 1rem 0;
+                margin: 1.5rem 0;
                 width: 100%;
                 text-align: center;
-                background: #444;
-                padding: 0.5rem;
-                border-radius: 4px;
-                width: 90%;
                 margin-left: 0;
             }
 
@@ -397,41 +483,41 @@
             }
 
             .owner-contacts {
-                display: none; /* Hide in the header when menu is collapsed */
+                display: none;
             }
             
-            /* Show owner contacts in expanded menu */
             nav ul.show + .owner-contacts {
                 display: block;
                 position: fixed;
                 top: 70%;
                 left: 0;
-                width: 80%;
-                background-color: #333;
+                width: 100%;
+                background-color: transparent;
                 padding: 1rem;
                 z-index: 1000;
                 text-align: center;
             }
 
             #hero h1 {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
 
             #hero p {
-                font-size: 1rem;
+                font-size: 1.1rem;
             }
 
             section {
-                padding: 3rem 1rem;
-                scroll-margin-top: 60px;
+                padding: 5rem 1.5rem;
             }
 
             section h2 {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
             
-            .hero-logo {
-                max-width: 220px;
+            .service-container,
+            .gallery-container,
+            .testimonial-container {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -441,14 +527,14 @@
         <nav>
             <div class="logo">
                 <img src="pasted-095968.png" alt="The Power Wash Guys Logo" />
-                The Power Wash Guys
+                TPW GUYS
             </div>
             <ul>
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#footer-info">Contact</a></li> <!-- Points to footer -->
+                <li><a href="#footer-info">Contact</a></li>
             </ul>
             <div class="owner-contacts">
                 <p>Jacob: <a href="tel:3473596247">(347) 359-6247</a></p>
@@ -460,31 +546,26 @@
     <main>
         <!-- Hero Section -->
         <section id="hero">
-            <!-- NOTE: Replace 'hero-image.png' with your actual image file -->
             <img src="hero-image.png" alt="Clean home exterior" class="hero-bg" />
             <div class="hero-content">
                 <img src="pasted-095968.png" alt="The Power Wash Guys Logo" class="hero-logo" />
                 <h1>Restore Your Property's Shine</h1>
-                <p>Professional Power Washing for Homes & Businesses</p>
-                <!-- Changed to phone number link -->
-                <a href="tel:3473596247" class="cta-button">Call Jacob: (347) 359-6247</a>
+                <p>Professional power washing services that enhance curb appeal and protect your investment.</p>
+                <a href="tel:3473596247" class="cta-button">Call for a Free Quote</a>
             </div>
         </section>
 
         <!-- About Section -->
         <section id="about">
-            <h2>About The Power Wash Guys</h2>
+            <h2>About Us</h2>
             <p>
-                We are your local experts in exterior cleaning. At The Power Wash
-                Guys, we pride ourselves on delivering top-quality power washing
-                services that enhance curb appeal and protect your investment. Using
-                safe and effective techniques, we remove dirt, grime, mold, and
+                At The Power Wash Guys, we pride ourselves on delivering top-quality power washing
+                services that transform your property. Using safe and effective techniques, we remove dirt, grime, mold, and
                 mildew from various surfaces, leaving them looking brand new.
             </p>
-            <p style="margin-top: 20px; text-align: center;">
-                <strong>Bringing Back the Shine One Wash at a Time!</strong>
+            <p style="margin-top: 30px; font-weight: 500;">
+                Bringing Back the Shine One Wash at a Time
             </p>
-            <!-- Optional: Add an image of your team or equipment here -->
         </section>
 
         <!-- Services Section -->
@@ -492,7 +573,6 @@
             <h2>Our Services</h2>
             <div class="service-container">
                 <div class="service-item">
-                    <!-- Optional: Add relevant icon/image -->
                     <h3>House Washing</h3>
                     <p>
                         Safely clean siding (vinyl, brick, stucco) removing algae and
@@ -500,7 +580,6 @@
                     </p>
                 </div>
                 <div class="service-item">
-                    <!-- Optional: Add relevant icon/image -->
                     <h3>Driveway & Sidewalk Cleaning</h3>
                     <p>
                         Eliminate oil stains, tire marks, and grime for a welcoming
@@ -508,7 +587,6 @@
                     </p>
                 </div>
                 <div class="service-item">
-                    <!-- Optional: Add relevant icon/image -->
                     <h3>Deck & Patio Cleaning</h3>
                     <p>
                         Restore wood or composite decks and patios to their original
@@ -516,20 +594,17 @@
                     </p>
                 </div>
                 <div class="service-item">
-                    <!-- Optional: Add relevant icon/image -->
                     <h3>Fence Washing</h3>
                     <p>Bring back the life to your wood or vinyl fences.</p>
                 </div>
                 <div class="service-item">
-                    <!-- Optional: Add relevant icon/image -->
-                    <h3>Roof Cleaning (Soft Wash)</h3>
+                    <h3>Roof Cleaning</h3>
                     <p>
-                        Gently remove black streaks (Gloeocapsa magma) and moss safely.
+                        Gently remove black streaks and moss safely with our soft wash technique.
                     </p>
                 </div>
-                 <div class="service-item">
-                    <!-- Optional: Add relevant icon/image -->
-                    <h3>Other Services</h3>
+                <div class="service-item">
+                    <h3>Custom Solutions</h3>
                     <p>
                         Have something else in mind? Contact us to see how we can help!
                     </p>
@@ -539,66 +614,55 @@
 
         <!-- Gallery Section -->
         <section id="gallery">
-            <h2>Before & After Gallery</h2>
+            <h2>Before & After</h2>
             <p class="gallery-notice">
-                <strong>Reminder:</strong> Replace these placeholder images with your
-                actual power washing work!
+                Replace these placeholder images with your actual power washing work
             </p>
             <div class="gallery-container">
                 <div class="gallery-item">
-                    <!-- NOTE: Replace 'portfolio-1.jpg' with your actual image file -->
-                    <img src="Group-286-1.png" alt="Placeholder Image 1 - Replace Me" />
-                    <p>Project Example 1 (Replace)</p>
+                    <img src="Group-286-1.png" alt="Before and after power washing" />
+                    <p>Driveway Transformation</p>
                 </div>
                 <div class="gallery-item">
-                    <!-- NOTE: Replace 'portfolio-2.jpg' with your actual image file -->
-                    <img src="Group-286-1.png" alt="Placeholder Image 2 - Replace Me" />
-                    <p>Project Example 2 (Replace)</p>
+                    <img src="Group-286-1.png" alt="Before and after power washing" />
+                    <p>House Siding Renewal</p>
                 </div>
                 <div class="gallery-item">
-                    <!-- NOTE: Replace 'portfolio-3.jpg' with your actual image file -->
-                    <img src="Group-286-1.png" alt="Placeholder Image 3 - Replace Me" />
-                    <p>Project Example 3 (Replace)</p>
+                    <img src="Group-286-1.png" alt="Before and after power washing" />
+                    <p>Deck Restoration</p>
                 </div>
-                <!-- Add more gallery items as needed -->
             </div>
         </section>
 
-        <!-- Testimonials Section (Optional but Recommended) -->
+        <!-- Testimonials Section -->
         <section id="testimonials">
-            <h2>What Our Customers Say</h2>
+            <h2>Client Testimonials</h2>
             <div class="testimonial-container">
                 <div class="testimonial">
                     <blockquote>
                         "Our house looks brand new! The Power Wash Guys were professional,
                         efficient, and did an amazing job on our siding and driveway."
                     </blockquote>
-                    <cite>- Jane D., Happy Homeowner</cite>
+                    <cite>Jane D., Brooklyn</cite>
                 </div>
                 <div class="testimonial">
                     <blockquote>
                         "Highly recommend! They removed years of grime from our patio.
                         Great service and fair pricing."
                     </blockquote>
-                    <cite>- Mark S., Satisfied Customer</cite>
+                    <cite>Mark S., Brooklyn</cite>
                 </div>
-                <!-- Add more testimonials as needed -->
             </div>
         </section>
-
-        <!-- Contact Info moved to Footer -->
-
     </main>
 
-    <footer id="footer-info"> <!-- Added ID for navigation link -->
+    <footer id="footer-info">
         <p>
-            &copy; <span id="year"></span> The Power Wash Guys. All Rights
-            Reserved. 
+            &copy; <span id="year"></span> The Power Wash Guys
         </p>
-        <p>Serving Brooklyn with confidence</p>
+        <p>Serving Brooklyn with excellence</p>
         <div class="owner-contacts">
-             <!-- Updated with actual phone numbers -->
-             <p>Call Us or email us:</p>
+             <p>Contact Us</p>
              <p>
                 Jacob Cohen: 
                 <a href="tel:3473596247">(347) 359-6247</a> 
@@ -608,11 +672,8 @@
              <p>Solomon Safdeye: <a href="tel:9176541699">(917) 654-1699</a></p>
         </div>
         <div class="social-links">
-            <!-- REPLACE # with your actual social media profile URLs -->
-            <!-- You can use text links or add icons (e.g., using Font Awesome) -->
             <a href="#" target="_blank" rel="noopener noreferrer">Facebook</a>
             <a href="#" target="_blank" rel="noopener noreferrer">Instagram</a>
-            <!-- Add other links like Twitter, Yelp, etc. -->
         </div>
     </footer>
 
@@ -654,37 +715,36 @@
             // Smooth Scrolling for Navigation Links
             document.querySelectorAll('nav a[href^="#"], .cta-button[href^="#"]').forEach((anchor) => {
                 anchor.addEventListener("click", function (e) {
-                    e.preventDefault(); // Prevent default jump
-                    
-                    // Close mobile menu if open
-                    const navMenu = document.querySelector('nav ul');
-                    const menuButton = document.querySelector('.menu-toggle');
-                    if (navMenu.classList.contains('show')) {
-                        navMenu.classList.remove('show');
-                        menuButton.classList.remove('active');
-                        document.body.classList.remove('menu-open');
-                    }
+                    if (this.getAttribute("href").startsWith("#")) {
+                        e.preventDefault();
+                        
+                        // Close mobile menu if open
+                        const navMenu = document.querySelector('nav ul');
+                        const menuButton = document.querySelector('.menu-toggle');
+                        if (navMenu.classList.contains('show')) {
+                            navMenu.classList.remove('show');
+                            menuButton.classList.remove('active');
+                            document.body.classList.remove('menu-open');
+                        }
 
-                    const targetId = this.getAttribute("href");
-                    const targetElement = document.querySelector(targetId);
+                        const targetId = this.getAttribute("href");
+                        const targetElement = document.querySelector(targetId);
 
-                    if (targetElement) {
-                        // Calculate offset if header is sticky
-                        const headerOffset = document.querySelector("header")?.offsetHeight || 0;
-                        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                        // Adjust offset slightly more to ensure content isn't hidden right under the header
-                        const offsetPosition = elementPosition - headerOffset - 20;
+                        if (targetElement) {
+                            const headerOffset = document.querySelector("header")?.offsetHeight || 0;
+                            const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                            const offsetPosition = elementPosition - headerOffset - 20;
 
-                        window.scrollTo({
-                            top: offsetPosition,
-                            behavior: "smooth",
-                        });
-                    } else if (targetId === "#hero") {
-                        // Special case for scrolling to top/hero
-                        window.scrollTo({
-                            top: 0,
-                            behavior: "smooth",
-                        });
+                            window.scrollTo({
+                                top: offsetPosition,
+                                behavior: "smooth",
+                            });
+                        } else if (targetId === "#hero") {
+                            window.scrollTo({
+                                top: 0,
+                                behavior: "smooth",
+                            });
+                        }
                     }
                 });
             });
